@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyVerse | Your Complete Learning Universe</title>
+
+    <!-- 🚀 यहाँ पर पेस्ट करें जो कोड मैंने आपको दिया था -->
+    <meta name="author" content="Anurag Karn">
+    <meta name="description" content="StudyVerse is a student-focused learning platform created by Anurag Karn.">
+    <meta name="keywords" content="Anurag Karn, StudyVerse, Cric-Anurag07, DBCS student, Anurag Karn Bihar">
+    
+    <meta property="og:title" content="StudyVerse by Anurag Karn">
+    <meta property="og:description" content="Explore smarter ways to learn with StudyVerse, developed by Anurag Karn.">
+    <meta property="og:url" content="https://github.io">
+    <meta property="og:type" content="website">
+    <!-- 🚀 कोड पेस्ट करना यहाँ खत्म हुआ -->
+
+</head>
+<body>
+    <!-- यहाँ से आपकी वेबसाइट का बाकी डिज़ाइन शुरू होता है -->
