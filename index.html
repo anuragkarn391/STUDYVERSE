@@ -1,1 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>StudyVerse | Your Complete Learning Universe</title>
+
+  <meta name="description"
+    content="StudyVerse is a smart learning platform designed to help students study smarter, organize learning, and access powerful study tools.">
+
+  <meta name="keywords"
+    content="StudyVerse, student app, AI learning, study tools, smart learning">
+
+  <meta name="author" content="StudyVerse">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #06152b;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 16px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(6, 21, 43, 0.92);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 1000;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .brand img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 20px 70px;
+      background:
+        radial-gradient(circle at top, #123d7a 0%, transparent 45%),
+        radial-gradient(circle at bottom right, #5b3a08 0%, transparent 35%),
+        #06152b;
+    }
+
+    .hero-content {
+      max-width: 900px;
+    }
+
+    .hero-logo {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      margin-bottom: 25px;
+      filter: drop-shadow(0 10px 30px rgba(0, 150, 255, 0.35));
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border-radius: 50px;
+      background: rgba(255, 215, 100, 0.12);
+      border: 1px solid rgba(255, 215, 100, 0.35);
+      color: #ffd76a;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(45px, 8vw, 90px);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #67b7ff, #ffd76a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #b9c7d8;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .buttons {
+      margin-top: 35px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      padding: 15px 27px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary-btn {
+      background: linear-gradient(135deg, #1976d2, #4dabf7);
+      color: white;
+      box-shadow: 0 10px 30px rgba(25,118,210,0.35);
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-4px);
+    }
+
+    .secondary-btn {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 100px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 55px;
+    }
+
+    .section-title h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: #aebdce;
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    /* FEATURES */
+
+    .features {
+      background: #081b36;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.07),
+        rgba(255,255,255,0.025)
+      );
+
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 30px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(103,183,255,0.45);
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #aebdce;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      text-align: center;
+      background:
+        radial-gradient(circle at center, rgba(24,118,210,0.2), transparent 50%),
+        #06152b;
+    }
+
+    .about-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 45px;
+      border-radius: 25px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .about-box p {
+      color: #b9c7d8;
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    /* CTA */
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #0b2b57, #102b4f);
+    }
+
+    .cta h2 {
+      font-size: 45px;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      color: #c3d0df;
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 35px 8%;
+      text-align: center;
+      background: #04101f;
+      color: #7f91a6;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    footer strong {
+      color: #ffffff;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+
+      nav {
+        padding: 14px 5%;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      section {
+        padding: 75px 6%;
+      }
+
+      .hero-logo {
+        width: 140px;
+        height: 140px;
+      }
+
+      .section-title h2 {
+        font-size: 34px;
+      }
+
+      .cta h2 {
+        font-size: 34px;
+      }
+
+      .about-box {
+        padding: 28px 20px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+
+    <div class="brand">
+      <img src="logo.png" alt="StudyVerse Logo">
+      <span>StudyVerse</span>
+    </div>
+
+    <div class="links">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#launch">Launch App</a>
+    </div>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <img
+        src="logo.png"
+        alt="StudyVerse Logo"
+        class="hero-logo"
+      >
+
+      <div class="badge">
+        🚀 Smart Learning Starts Here
+      </div>
+
+      <h1>
+        Welcome to
+        <span class="gradient-text">StudyVerse</span>
+      </h1>
+
+      <p>
+        Your complete learning universe designed to help students
+        study smarter, stay organized, and unlock powerful tools
+        for better learning.
+      </p>
+
+      <div class="buttons">
+
+        <!-- YOUR EXISTING STUDYVERSE APP -->
+
+        <a
+          href="https://myapp.codeflying.app/180741670/?share_key=I7icT104VLE&lang=en-US"
+          class="primary-btn"
+          target="_blank"
+        >
+          🚀 Open StudyVerse
+        </a>
+
+        <a href="#features" class="secondary-btn">
+          Explore Features ↓
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+
+  <section class="features" id="features">
+
+    <div class="section-title">
+
+      <h2>Everything Students Need</h2>
+
+      <p>
+        StudyVerse brings useful learning tools together
+        into one growing student-focused platform.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <div class="card">
+
+        <div class="icon">🤖</div>
+
+        <h3>Smart Learning</h3>
+
+        <p>
+          Explore smarter ways to understand topics and
+          improve your learning experience.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">📚</div>
+
+        <h3>Study Tools</h3>
+
+        <p>
+          Useful tools designed to support students in
+          their everyday learning journey.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">📝</div>
+
+        <h3>Notes & Learning</h3>
+
+        <p>
+          Organize knowledge and make learning more
+          structured and productive.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🎯</div>
+
+        <h3>Focused Growth</h3>
+
+        <p>
+          Stay focused on your learning goals and build
+          better study habits over time.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section class="about" id="about">
+
+    <div class="section-title">
+
+      <h2>What is StudyVerse?</h2>
+
+    </div>
+
+
+    <div class="about-box">
+
+      <p>
+
+        StudyVerse is a student-focused learning platform created
+        with the vision of bringing useful study tools and smarter
+        learning experiences together in one place.
+
+        <br><br>
+
+        Our mission is simple:
+
+        <strong>Make learning easier, smarter, and more accessible.</strong>
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta" id="launch">
+
+    <h2>Ready to Enter Your Learning Universe?</h2>
+
+    <p>
+      Explore StudyVerse and discover a smarter way to learn.
+    </p>
+
+    <a
+      href="https://myapp.codeflying.app/180741670/?share_key=I7icT104VLE&lang=en-US"
+      class="primary-btn"
+      target="_blank"
+    >
+      🚀 Launch StudyVerse
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 <strong>StudyVerse</strong>. All rights reserved.
+    </p>
+
+    <p style="margin-top: 8px;">
+      Your Complete Learning Universe 📚✨
+    </p>
+
+  </footer>
+
+
+</body>
+</html>
